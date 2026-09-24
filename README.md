@@ -27,10 +27,9 @@ Dirancang khusus agar ringan di CPU (30–60 FPS), bebas *jitter*, mendukung mul
 │   ├── actions.py             # ActionEngine: eksekusi kursor, scroll kontinu, & klik
 │   └── utils.py               # Fungsi normalisasi fitur 42 koordinat & mapping layar
 ├── gesture_controller.py      # Entry point utama aplikasi kontroler real-time
-├── best_gesture_model.joblib  # Model ML terbaik yang sudah dilatih (KNN 99.93%)
-├── collect_data.py            # Script interaktif untuk merekam dataset koordinat via webcam
-├── gesture_training.ipynb     # Jupyter Notebook pipeline training & evaluasi (DT, KNN, LogReg)
-├── dataset_gestures.csv       # Dataset koordinat sendi tangan (50.000 data terstandarisasi)
+├── best_gesture_model.joblib  # Model ML terbaik yang sudah dilatih (KNN k=5, Test Acc 99.84%)
+├── gesture_training.ipynb     # Pipeline lengkap: akuisisi data, benchmarking model, & ekspor
+├── dataset_gestures.csv       # Dataset koordinat sendi tangan (50.006 data terstandarisasi)
 ├── requirements.txt           # Daftar dependensi pustaka Python
 ├── run.sh                     # Runner praktis untuk Linux / macOS
 └── run.bat                    # Runner praktis untuk Windows
@@ -107,13 +106,24 @@ Aplikasi pada `gesture_controller.py` menggunakan arsitektur modular yang memisa
 
 ---
 
-## 5. Pelatihan Ulang Model (Opsional)
+## 5. Hasil Evaluasi & Komparasi Model
+
+Berdasarkan pengujian pada 50.006 sampel (42 fitur spasial normalisasi) dengan rasio *train-test split* 80:20:
+
+| Model | Train Accuracy | Test Accuracy | Latensi Inferensi | Keterangan |
+| :--- | :---: | :---: | :---: | :--- |
+| **K-Nearest Neighbors ($k=5$)** | **99.88%** | **99.84%** | **~5.02 ms** | **Dipilih (Akurasi tertinggi, gap latih-uji 0.04%)** |
+| Logistic Regression | 98.77% | 98.69% | ~0.34 ms | Akurasi lebih rendah dibanding KNN |
+| Decision Tree (max_depth=6) | 98.12% | 97.77% | ~0.30 ms | Akurasi terendah di antara ketiga model |
+
+Model **KNN** dipilih untuk *deployment* (`best_gesture_model.joblib`) karena memberikan akurasi generalisasi terbaik tanpa *overfitting*, dengan latensi inferensi ~5 ms yang masih jauh di bawah batas waktu per frame (16.67 ms untuk 60 FPS / 33.3 ms untuk 30 FPS).
+
+---
+
+## 6. Pelatihan Ulang Model (Opsional)
 
 Jika ingin menambah variasi gestur atau melatih model baru:
-1. Rekam data koordinat:
-   ```bash
-   python collect_data.py
-   ```
-   *(Tahan pose dan tekan angka 0 s.d. 4 pada keyboard)*.
-2. Buka dan jalankan [gesture_training.ipynb](file:///home/data/kuliah/rka-knowledge/courses/LBE_KCV/draft_fp_laptopcontroller/gesture_training.ipynb) untuk membandingkan performa Decision Tree, KNN, dan Logistic Regression serta mengekspor model baru ke `best_gesture_model.joblib`.
+1. Buka notebook [gesture_training.ipynb](file:///home/data/kuliah/rka-knowledge/courses/LBE_KCV/draft_fp_laptopcontroller/gesture_training.ipynb).
+2. Jalankan **Cell 6** untuk merekam data koordinat baru langsung melalui webcam *(tahan pose tangan dan tekan tombol 0 s.d. 4 pada keyboard)*.
+3. Jalankan sel-sel berikutnya untuk melatih, mengevaluasi ketiga model klasifikasi, dan mengekspor model terbaik ke `best_gesture_model.joblib`.
 
