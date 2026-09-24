@@ -10,11 +10,11 @@ Dirancang khusus agar ringan di CPU (30–60 FPS), bebas *jitter*, mendukung mul
 
 | Label | Gestur Tangan | Mode / Aksi | Deskripsi |
 | :---: | :--- | :---: | :--- |
-| `0` | **Kepalan Tangan / Rileks** | `STANDBY` | Kursor diam di tempat, tidak memicu klik/scroll. |
-| `1` | **Hanya Jari Telunjuk** | `MOVE` | Menggerakkan kursor di layar. Dilengkapi perataan adaptif (presisi saat pelan, gesit saat cepat). |
-| `2` | **Telunjuk + Jari Tengah** | `SCROLL` | Scroll halaman kontinu (gerakkan tangan ke atas / bawah dari posisi awal). |
-| `3` | **Telunjuk + Jempol (Bentuk L)** | `LEFT_CLICK` | Memicu 1 kali klik kiri mouse (stabil dan bebas salah picu). |
-| `4` | **Telapak Terbuka (4 Jari)** | `RIGHT_CLICK` | Memicu 1 kali klik kanan mouse (membuka menu konteks). |
+| `0` | **Telapak Tangan Terbuka** | `STANDBY` | Kursor diam di tempat, tidak memicu klik/scroll. |
+| `1` | **Hanya Jari Telunjuk/Satu Jari** | `MOVE` | Menggerakkan kursor di layar. Dilengkapi perataan adaptif (presisi saat pelan, gesit saat cepat). |
+| `2` | **Telunjuk + Jari Tengah/ Dua Jari** | `SCROLL` | Scroll halaman kontinu (gerakkan tangan ke atas / bawah dari posisi awal). |
+| `3` | **Pose 3 Jari** | `LEFT_CLICK` | Memicu 1 kali klik kiri mouse (stabil dan bebas salah picu). |
+| `4` | **Pose 4 Jari** | `RIGHT_CLICK` | Memicu 1 kali klik kanan mouse (membuka menu konteks). |
 
 ---
 
