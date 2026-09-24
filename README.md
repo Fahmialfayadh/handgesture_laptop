@@ -1,4 +1,4 @@
-# Hand Gesture Laptop Controller V2.0
+# Hand Gesture Laptop Controller (Fp lbe kcv)
 
 Aplikasi pengontrol kursor mouse laptop secara *real-time* berbasis gestur tangan menggunakan **MediaPipe Hands** dan **Machine Learning (K-Nearest Neighbors / Decision Tree / Logistic Regression)**.
 
