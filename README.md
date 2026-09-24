@@ -1,4 +1,4 @@
-# Hand Gesture Laptop Controller
+# Hand Gesture Laptop Controller V2.0
 
 Aplikasi pengontrol kursor mouse laptop secara *real-time* berbasis gestur tangan menggunakan **MediaPipe Hands** dan **Machine Learning (K-Nearest Neighbors / Decision Tree / Logistic Regression)**.
 
