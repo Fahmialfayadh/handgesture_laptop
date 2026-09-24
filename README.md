@@ -1,4 +1,13 @@
-# Hand Gesture Laptop Controller (Fp lbe kcv)
+# Hand Gesture Laptop Controller (FP LBE KCV)
+
+**Kelompok 6: kata marvel jumat siang kemarin nama kelompoknya "argo ngawi jesgejes" aja dan kami semua sepakat**
+
+| Nama | NRP |
+| :--- | :--- |
+| Fahmi Alfayadh | 5054251015 |
+| Dimas Maulana Putra | 5025251108 |
+| Marveilleux Putra Mahasura | 5025251109 |
+| Nabil Khairie | 5025251066 |
 
 Aplikasi pengontrol kursor mouse laptop secara *real-time* berbasis gestur tangan menggunakan **MediaPipe Hands** dan **Machine Learning (K-Nearest Neighbors / Decision Tree / Logistic Regression)**.
 
