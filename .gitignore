@@ -6,6 +6,16 @@ augment_*.py
 query.py
 .kilo/
 
+# Presentations, reports, and media (keep only README.md)
+*.pptx
+*.ppt
+*.md
+!README.md
+*.png
+
+# Standalone collection script (already in notebook)
+collect_data.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
